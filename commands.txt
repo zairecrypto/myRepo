@@ -1,0 +1,33 @@
+mix phx.gen.html Accounts User users name username password
+    Accounts: folder
+    User: controller
+    users: database
+    name username password: database fields
+
+git reset --hard && git clean -fd
+    to load the last commit files
+    always run mix ecto.reset
+
+mix phx.gen.schema Accounts.User users name
+    to create
+
+Setting up White bread:
+http://lgbanuelos.gitlab.io/asd-2017/notes/lecture6/  struct = build_assoc(user, :bookings, Enum.map(booking_params, fn({key, 
+1.
+    def project do
+    [
+      app: :takso,
+      ...
+      preferred_cli_env: ["white_bread.run": :test],
+      ...
+    ]
+  end
+
+  defp deps do
+    [
+      ...
+      {:white_bread, "~> 4.3", only: [:test]}
+    ]
+  end
+2.
+    features/taxi_booking.feature
